@@ -6,6 +6,7 @@ import java.util.List;
 public class Loja {
 	String nome;
 	String cnpj;
+	double result = 0.0;
 	List<Livro> livros = new ArrayList<>();
 	List<VideoGame> videoGames = new ArrayList<>();
 
@@ -55,7 +56,7 @@ public class Loja {
 		if (this.getLivros().isEmpty()) {
 			System.out.println("A loja não tem livros no seu estoque");
 		} else {
-			this.getLivros().forEach(livro -> System.out.println(livro));
+			this.getLivros().forEach(livro -> System.out.println(livro.getNome()));
 		}
 
 	}
@@ -64,11 +65,14 @@ public class Loja {
 		if (this.getVideoGames().isEmpty()) {
 			System.out.println("A loja não tem video games no seu estoque");
 		} else {
-			this.getVideoGames().forEach(videoG -> System.out.println(videoG));
+			this.getVideoGames().forEach(videoG -> System.out.println(videoG.getNome()));
 		}
 	}
 
 	public double calculaPatrimonio() {
 
+		this.getLivros().forEach(livro -> result += livro.getPreco());
+		this.getVideoGames().forEach(videoG -> result += videoG.getPreco());
+		return result;
 	}
 }
