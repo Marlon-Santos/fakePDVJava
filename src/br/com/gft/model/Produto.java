@@ -5,6 +5,9 @@ abstract public class Produto {
 	private double preco;
 	private int qtd;
 
+	public Produto() {
+	}
+	
 	public Produto(String nome, double preco, int qtd) {
 		this.setNome(nome);
 		this.setPreco(preco);
