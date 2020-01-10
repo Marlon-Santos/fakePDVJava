@@ -1,5 +1,5 @@
 package br.com.gft.interfaces;
 
-public class Imposto {
-
+public interface Imposto {
+	double calculaImposto();
 }

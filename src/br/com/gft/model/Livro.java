@@ -1,14 +1,17 @@
 package br.com.gft.model;
 
-public class Livro extends Produto{
+import br.com.gft.interfaces.Imposto;
+
+public class Livro extends Produto implements Imposto {
 	private String autor;
 	private String tema;
 	private int qtdPag;
+
 	public Livro() {
 		super();
 	}
-	public Livro(String nome, double preco, int
-			qtd, String autor, String tema, int qtdPag) {
+
+	public Livro(String nome, double preco, int qtd, String autor, String tema, int qtdPag) {
 		super();
 		this.setAutor(autor);
 		this.setTema(tema);
@@ -40,5 +43,13 @@ public class Livro extends Produto{
 
 	public void setQtdPag(int qtdPag) {
 		this.qtdPag = qtdPag;
+	}
+
+	public double calculaImposto() {
+		if (this.getTema().trim() == "educativo") {
+			return 0;
+		} else {
+			return this.getPreco() * 0.1;
+		}
 	}
 }

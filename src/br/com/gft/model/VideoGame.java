@@ -1,6 +1,8 @@
 package br.com.gft.model;
 
-public class VideoGame extends Produto {
+import br.com.gft.interfaces.Imposto;
+
+public class VideoGame extends Produto implements Imposto{
 	private String marca;
 	private String modelo;
 	private boolean isUsado;
@@ -42,5 +44,11 @@ public class VideoGame extends Produto {
 		this.isUsado = isUsado;
 	}
 
-
+	public double calculaImposto() {
+		if (this.isUsado()) {
+			return this.getPreco() * 0.25;
+		} else {
+			return this.getPreco() * 0.45;
+		}
+	}
 }
